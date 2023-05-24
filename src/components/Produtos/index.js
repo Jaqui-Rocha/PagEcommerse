@@ -6,7 +6,7 @@ import Horizon from "../Imagens/imagens/Horizon.svg";
 import ResidentEvil from "../Imagens/imagens/ResidentEvil.svg";
 import PagProdutos from "../Paginas/pagProdutos";
 
-// function page1(){
+
 
 const Produtos = [
 {
@@ -47,10 +47,7 @@ id:0,
 },
 
 ]
-// return(
-//     // <PagProdutos itens = {Produtos}/>
-// )
-// }
+
 
 export default Produtos
 
