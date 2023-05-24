@@ -18,14 +18,10 @@ font-family: 'Poppins', sem serifa;
 height: 38px;
 }
 `
-// const Tamanho= styled.img`
-// width: 128px;
-// height: 38px;
-// `
 function Header(){
     return(
         <Container>            
-                <img src= {logoArnia}/>            
+            <img src= {logoArnia}/>            
             Loja Virtual
         </Container>
     )

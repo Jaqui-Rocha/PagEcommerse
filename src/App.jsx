@@ -1,23 +1,26 @@
-
-import Rodape from "./components/Rodape/index"
-import Header from './components/Header/index'
-import PagProdutos from './components/Paginas/pagProdutos'
-import Produtos from "./components/Produtos"
-
-
-function App() {
-
-  return (
-      <>
-        <Header/>
-        
-       <PagProdutos/>
-        <Rodape/>
-       
-        
-      </>
-  ) 
-  
+import Layout from "./components/Paginas/Layout"
+import Produtos from "./components/Paginas/pagProdutos"
+import Carrinho from "./components/Paginas/pagCarrinho"
+import Checkout from "./components/Paginas/pagCheckout"
+import { useState } from "react"
+export const TELAS = {
+PAGPRODUTOS:0,
+PAGCARRINHO:1,
+PAGCHECKOUNT:2
 }
 
-export default App
+  export default function App(){
+const [tela,setTela]= useState(TELAS.PAGPRODUTOS)
+  return (
+      
+        <Layout>
+          {tela===TELAS.PAGPRODUTOS &&<Produtos changeTela={setTela}/>}
+          {tela===TELAS.PAGCARRINHO &&<Carrinho changeTela={setTela}/>}
+          {tela===TELAS.PAGCHECKOUNT &&<Checkout changeTela={setTela}/>}
+        </Layout>
+        
+      
+  ) 
+  }
+
+

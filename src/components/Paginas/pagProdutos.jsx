@@ -4,7 +4,7 @@ import img from "../Produtos"
 import valor from "../Produtos"
 import id from "../Produtos"
 import React, { useEffect, useState } from "react";
-// import id from "../Produtos/index/battlefield"
+
 import id1 from "../Imagens/imagens/BATTLEFIELD.svg"
 const Conteiner= styled.div`
 font-family: 'Poppins', sans-serif;
@@ -25,37 +25,16 @@ list-style-type: none;
   
 
 
-function PagProdutos() {
-  const [produtos, setProdutos] = useState([]);
-useEffect(()=> {
-  setProdutos([{nome},{img},{id},{valor}])
-},[]);
 
-   function renderizaDados() {
- 
-     return( 
-     <div>
-      {produtos.map((item,id) => (    
-     <Ul key={id}>
-          <Li>{item}</Li>          
-       </Ul>
-    ))
-   }
-   </div>
-     )
-   }
-  return (
+export default function Produtos({changeTela}){
+  return(
     <Conteiner>
-      <Header>Produtos </Header>
-
-      <Image src={id1}/>
-      {/* {renderizaDados()} */}
+      <h1>Produtos</h1>
+      <button onClick={()=> changeTela(1)} >Ir para Carrinho</button>
     </Conteiner>
-  );
+    
+  )
 }
-
-export default PagProdutos;
-
 
 
   
