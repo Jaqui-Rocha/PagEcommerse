@@ -1,46 +1,47 @@
 import styled from "styled-components";
-import React, {useState } from "react";
-import Array from "../Produtos/index"
+import React, { useState } from "react";
+import listaProdutos from "../Produtos/index";
 
-const Conteiner= styled.div`
-font-family: 'Poppins', sans-serif;
-`
+const Conteiner = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -0.5rem;
-`
+`;
 const Column = styled.div`
   max-width: 33.3333%;
   flex: 0 0 33.3333%;
   padding: 0 0.5rem;
   margin-bottom: 1rem;
-`
+`;
 const Product = styled.div`
   position: relative;
-`
-const Image= styled.img`
- object-fit: contain;
+`;
+const Image = styled.img`
+  object-fit: contain;
   max-width: 100%;
-`
+`;
 const H1 = styled.div`
-font-size: 40px;
-font-weight: bold;
-font-family: poppins;
-display: flex;
-flex: space-between;
-
-> span {
-   background: #6950A1;
-   color: white;
-}
-`
-// const Ul= styled.div`
-// text-decoration: none;
-// `
-// const Li= styled.div`
-// list-style-type: none;
-// `
+  font-size: 40px;
+  font-weight: bold;
+  font-family: poppins;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+`;
+const No = styled.div`
+  background: #6950a1;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  right: 15px;
+`;
 const Button = styled.button`
   position: absolute;
   top: 50%;
@@ -50,50 +51,52 @@ const Button = styled.button`
   background: #6a50a1ac;
   color: #fff;
   border: 0;
-`
+`;
 const Botao = styled.button`
-background: #6950A1 ;
-border-radius: 5px;
-border:0;
-font-size:16 px;
-color: white;
-padding:5px;
+  background: #6950a1;
+  border-radius: 5px;
+  border: 0;
+  font-size: 16px;
+  color: white;
+  padding: 5px;
+  width: 200px;
+`;
 
-`
 const Price = styled.div`
   font-size: 1rem;
   color: #313131;
   font-weight: bold;
-`
+  margin-top: 10px;
+`;
 
+export default function Produtos({ changeTela, produtos = [] }) {
+  const [p, setP] = useState(produtos);
+  const [count, setCount] = useState(0);
 
+  function addCarrinho() {
+    setCount(count + 1);
+  }
 
-export default function Produtos({changeTela, item = [],Count,addCarrinho}){
-  const [p,setP]= useState(Array)
-  
-  return(
+  return (
     <Conteiner>
-      <H1>Produtos <span>{Count}</span></H1>
+      <H1>
+        Produtos <No>{count}</No>
+      </H1>
       <Row>
-        {p.map(item => (
-          <Column key={item.id}>
-            <Product>
-              <Image src={item.img} alt={item.nome} />
-              <Button onClick={() => addCarrinho(p)}>Adicionar</Button>
-              <Price>
-                Valor: {item.valor}
-              </Price>
-            </Product>
-          </Column>
-        ))}
+        {p.map((item) => {
+          return (
+            <Column key={item.id}>
+              <Product>
+                <Image src={item?.image} alt={item.title} />
+                <Button onClick={addCarrinho}>Adicionar</Button>
+                <Price>Valor: ${item.price}</Price>
+              </Product>
+            </Column>
+          );
+        })}
       </Row>
-     
-  
-      <Botao onClick={()=> changeTela(1)} >Ir para Carrinho</Botao>
+
+      <Botao onClick={() => changeTela(1)}>Ir para Carrinho</Botao>
     </Conteiner>
-    
-  )
+  );
 }
-
-
-  

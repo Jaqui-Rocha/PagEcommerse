@@ -6,12 +6,15 @@ border:0;
 font-size:16 px;
 color: white;
 padding:5px;
+gap: 5 px;
 `
 export default function Carrinho({changeTela}){
     return(
         <>
         <h1>Carrinho</h1>
-        <Botao onClick={()=> changeTela(0)} >Continuar Comprando</Botao>
+        <pre>{JSON.stringify(Carrinho , null, 2)}</pre>
+        <Botao onClick={()=> changeTela(0)} >Continuar Comprando</Botao><br>
+        </br>
         <Botao onClick={()=> changeTela(2)} >Finalizar Compra</Botao>
         </>
       

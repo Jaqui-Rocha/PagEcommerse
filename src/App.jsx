@@ -3,6 +3,7 @@ import Produtos from "./components/Paginas/pagProdutos"
 import Carrinho from "./components/Paginas/pagCarrinho"
 import Checkout from "./components/Paginas/pagCheckout"
 import { useState } from "react"
+
 //import  Array from "./components/Produtos"
 export const TELAS = {
 PAGPRODUTOS:0,
