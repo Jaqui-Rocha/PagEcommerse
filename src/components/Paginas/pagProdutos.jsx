@@ -13,17 +13,21 @@ const Row = styled.div`
   margin: 0 -0.5rem;
 `;
 const Column = styled.div`
-  max-width: 33.3333%;
+  max-width: 30%; 
   flex: 0 0 33.3333%;
-  padding: 0 0.5rem;
+  padding-left: 1.2rem;
   margin-bottom: 1rem;
+ 
+
 `;
 const Product = styled.div`
   position: relative;
 `;
 const Image = styled.img`
   object-fit: contain;
-  max-width: 100%;
+  max-width: 70%;
+  
+
 `;
 const H1 = styled.div`
   font-size: 40px;
@@ -46,9 +50,10 @@ const Button = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 1rem;
-  right: 1rem;
-  background: #6a50a1ac;
+  left: 0px;
+  width: 125px;
+ 
+  background: #aa8becac;
   color: #fff;
   border: 0;
 `;
@@ -60,6 +65,9 @@ const Botao = styled.button`
   color: white;
   padding: 5px;
   width: 200px;
+  position: relative;
+  bottom:2px;
+  left: 385px;
 `;
 
 const Price = styled.div`
@@ -75,6 +83,7 @@ export default function listaProdutos({ changeTela, produtos = [] }) {
 
   function addCarrinho() {
     setCount(count + 1);
+
   }
  
   
@@ -90,7 +99,7 @@ export default function listaProdutos({ changeTela, produtos = [] }) {
               <Product>
                 <Image src={item?.image} alt={item.title} />
                 <Button onClick={addCarrinho}>Adicionar</Button>
-                <Price>Valor: ${item.price}</Price>
+                <Price>Valor: R${item.price}</Price>
               </Product>
             </Column>
           );
