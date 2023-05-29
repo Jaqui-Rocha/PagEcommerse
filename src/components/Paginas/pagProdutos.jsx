@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import listaProdutos from "../Produtos/index";
+import Produtos from "../Produtos/index";
 
 const Conteiner = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const H1 = styled.div`
   font-weight: bold;
   font-family: poppins;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 20px;
 `;
 const No = styled.div`
@@ -69,14 +69,15 @@ const Price = styled.div`
   margin-top: 10px;
 `;
 
-export default function Produtos({ changeTela, produtos = [] }) {
-  const [p, setP] = useState(produtos);
+export default function listaProdutos({ changeTela, produtos = [] }) {
+  const [p, setP] = useState(Produtos);
   const [count, setCount] = useState(0);
 
   function addCarrinho() {
     setCount(count + 1);
   }
-
+ 
+  
   return (
     <Conteiner>
       <H1>
