@@ -1,4 +1,5 @@
 import styled from "styled-components"
+
 const Botao = styled.button`
 background: #6950A1 ;
 border-radius: 5px;
@@ -8,11 +9,11 @@ color: white;
 padding:5px;
 gap: 5 px;
 `
-export default function Carrinho({changeTela}){
+export default function Carrinho({changeTela, cart}){
     return(
         <>
         <h1>Carrinho</h1>
-        <pre>{JSON.stringify(Carrinho , null, 2)}</pre>
+        {/* <pre>{JSON.stringify(cart , null, 2)}</pre> */}
         <Botao onClick={()=> changeTela(0)} >Continuar Comprando</Botao><br>
         </br>
         <Botao onClick={()=> changeTela(2)} >Finalizar Compra</Botao>
